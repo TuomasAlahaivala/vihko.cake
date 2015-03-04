@@ -1,0 +1,41 @@
+<?php
+//muokkaalaite.phtml
+?>
+	<h3 id="muokkaa" onClick="showdivi('muokkaakohdeDivi');" style="cursor:pointer; display:none;">Muokkaa kohdetta:</h3>
+		<div id="muokkaakohdeDivi" style="display:none;">
+		<div class="poistabutton"><a onClick="tarkistakohteenpoisto();" href="#" title="poistava varaus">Poista kohde</a></div>
+		<form method="post" action="">
+			<input type="text" id="nimi" name="nimi" class="tuotteennimi" value="" required="required">
+			<div class="styled-select">
+			<select id="muokkaapaikka" name="paikka">
+			<option value='-'>Tuotteen paikka</option>
+			<option value='Helsinki'>Helsinki</option>
+			<option value='Oulu'>Oulu</option>
+			<option value='Jyväskylä'>Jyväskylä</option>
+			</select>
+			</div>
+			<textarea id="lisatietoja" name="lisatietoja" value=""></textarea>
+			<input type="hidden" id="formtype" name="formtype" value="muokkaa">
+			<input type="hidden" id="id_item" name="id_item" value="">
+			<p>Valitse normaalikuljetuskaupungit.</p>
+			<div class="styled-select">
+			
+			<select id="laitteet" name="laitteet" onChange="lisaaKaupunki(this,'muokkaa')">
+			<option value='-'>-</option>";
+			<?php
+			sort($cities);
+			foreach($cities as $key => $item){
+
+				echo "<option value='".$item."'>".$item."</option>";
+			}
+			?>
+			</select>
+			</div>
+			<input type="hidden" name="muokkaakaupungit" id="muokkaakaupungit" value="">
+			<div id="muokkaakaupungit_show"></div>
+			
+			
+			<input type="Submit" value="Muokkaa" name="muokkaa" style="cursor:pointer;">
+		</form>
+
+		</div>

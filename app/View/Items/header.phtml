@@ -1,0 +1,65 @@
+<?php header('Content-Type: text/html; charset=UTF-8'); ?>
+<!DOCTYPE html>
+<?php
+$input = <<<INPUT
+faketitle onmouseover=alert(/ZF2!/);
+INPUT;
+$escaper = new Zend\Escaper\Escaper('utf-8');
+$output = $escaper->escapeHtmlAttr($input);
+?>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<title>Zend vihko</title>
+
+
+<?php $this->headLink()->appendStylesheet('/css/vihko_style.css');?>
+<?php $this->headLink()->appendStylesheet('/css/jquery.timepicker.css');?>
+<?php $this->headLink()->appendStylesheet('/css/vihko_style.css');?>
+<?php $this->headLink()->appendStylesheet('/css/jquery.fancybox.css?v=2.1.5');?>
+<?php echo $this->headLink();?>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<?php
+$this->headScript()->appendFile('/js/vihkojsfunc.js');
+$this->headScript()->appendFile('/js/vihkofunctions.js');
+$this->headScript()->appendFile('/js/jquery.timepicker.js');
+$this->headScript()->appendFile('/js/jquery.fancybox.pack.js?v=2.1.5.js');
+echo $this->headScript();
+?>
+ 
+<script type="text/javascript">
+	$.noConflict();
+	jQuery(document).ready(function($){
+		$("#lisaa").click(function(){
+		$(".hide").stop().slideToggle("slow");
+		$(".page").stop().animate({"margin-top":"120px"}, "slow")
+		}, function() {
+		$(".page").stop().animate({"margin-top":"0"}, "slow")
+		$(".hide").stop().slideToggle("slow");
+  });
+});
+</script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+
+		<h2 class="title"><a href="vihko.zend">Vihko</a></h2>
+
+
+		<ul class="navigation">
+			<li>Laitteet</li>
+			<li>Varaus</li>
+			<li>Yhteenveto</li>
+		</ul>
+	</div>

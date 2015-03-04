@@ -1,0 +1,227 @@
+/*
+Theme Name: Norris booking
+Version: 1.0
+Author: Juho Mäntyranta, Tuomas Alahäivälä / Crea
+Author UrI: www.crea.fi
+*/
+
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote{ margin:0px; padding:0px; border:0px; }
+
+@font-face { 
+    font-family: 'gotham_boldregular'; 
+        src: url('fonts/gotham-bold-webfont.eot'); 
+        src: url('/../fonts/gotham-bold-webfont.eot?#iefix') 
+            format('embedded-opentype'), 
+                url('fonts/gotham-bold-webfont.woff2') 
+            format('woff2'), url('fonts/gotham-bold-webfont.woff') 
+            format('woff'), url('/../fonts/gotham-bold-webfont.ttf') 
+            format('truetype'), url('/../fonts/gotham-bold-webfont.svg#gotham_boldregular') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'gotham_bookregular'; src: url('fonts/gotham-book-webfont.eot'); src: url('/../fonts/gotham-book-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/gotham-book-webfont.woff2') format('woff2'), url('fonts/gotham-book-webfont.woff') format('woff'), url('/../fonts/gotham-book-webfont.ttf') format('truetype'), url('/../fonts/gotham-book-webfont.svg#gotham_bookregular') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'gotham_blackregular'; src: url('fonts/gotham-black-webfont.eot'); src: url('/../fonts/gotham-black-webfont.eot?#iefix') format('embedded-opentype'), url('/../fonts/gotham-black-webfont.woff2') format('woff2'), url('/../fonts/gotham-black-webfont.woff') format('woff'), url('/../fonts/gotham-black-webfont.ttf') format('truetype'), url('/../fonts/gotham-black-webfont.svg#gotham_blackregular') format('svg'); font-weight: normal; font-style: normal; }
+
+body{background:#fafafa; font-family: 'gotham_bookregular';}
+#wrapper{width:1075px; height:auto; margin:0px auto; }
+h2.title{float:left; margin-top:20px; text-transform:uppercase; letter-spacing:1; color:#303944; font-family: 'gotham_boldregular'; font-size:20px;}
+h2.title a{color:#303944; text-decoration:none;}
+#header{float:left; width:1075px;}
+a.logout{float:right; margin-top:24px; font-size:12px; text-decoration:none; color:#323a45; margin-bottom:16px;}
+ul.navigation{list-style:none; width:1075px; height:50px; background:#dc272f; float:left;}
+ul.navigation li{width:33.33%; height:35px; float:left; text-align:center; padding-top:15px;}
+ul.navigation li.current_page_item{background:#a5181f;}
+ul.navigation li a{text-transform:uppercase; color:#ffffff; font-size:14px; text-decoration:none; text-shadow:1px 1px 1px #a5181f; font-family: 'gotham_boldregular';}
+ul.navigation{list-style:none; width:1075px; height:50px; background:#dc272f; float:left;}
+ul li{width:33.33%; height:35px; float:left; text-align:center; padding-top:15px;}
+ul li.current_page_item{background:#a5181f;}
+ul li a{text-transform:uppercase; color:#ffffff; font-size:14px; text-decoration:none; text-shadow:1px 1px 1px #a5181f; font-family: 'gotham_boldregular';}
+.alignleft{float:left; margin-top:50px; background:#dc272f; text-align:center;}
+.alignleft a{text-transform:uppercase; color:#ffffff; text-decoration:none; font-family: 'gotham_boldregular';  width:250px; height:33px; background:#dc272f; display:block; float:left; padding-top:17px;}
+.alignleft a:before{content:url(assets/previous.jpg); float:left; margin-top:-4px; margin-left:10px;}
+.alignright{float:right; margin-top:50px; background:#dc272f; text-align:center;}
+.alignright a{text-transform:uppercase; color:#ffffff; text-decoration:none; font-family: 'gotham_boldregular'; width:250px; height:33px; background:#dc272f; display:block; float:left; padding-top:17px;}
+.alustava a{text-transform:uppercase; color:#ffffff; text-decoration:none; font-family:'gotham_boldregular'; width:250px; height:33px; background:#c9363e; display:block; float:left; padding-top:17px; text-align:center; margin-left:300px; margin-top:50px;}
+.alignright a:after{content:url(assets/next.jpg); float:right; margin-top:-4px; margin-right:10px;}
+.poistabutton{float:left; margin-top:15px; margin-bottom:25px; background:#dc272f; text-align:center;}
+.poistabutton a{text-transform:uppercase; color:#ffffff; text-decoration:none; font-family: 'gotham_boldregular'; width:250px; height:33px; background:#dc272f; display:block; float:left; padding-top:17px;}
+.poistabutton a:after{float:left; margin-top:-4px; margin-right:10px;}
+#left-column{width:250px; height:auto; float:left; margin-top:50px; margin-bottom:50px;}
+#left-column h3{font-size:20px; font-family: 'gotham_boldregular'; color:#323a45; margin-bottom:10px;}
+.styled-select{overflow:hidden; background:url(/../img/dropdown.jpg) right no-repeat; height:50px; background-color:#323a45; margin-bottom:50px;}
+.styled-select select{background: transparent; width: 268px; padding: 15px 10px; font-size: 16px; line-height: 1; border: 0; border-radius: 0; height: 50px; -webkit-appearance: none; color:#969696; font-size:14px; font-family: 'gotham_bookregular';}
+.styled-select option{background:#dc272f; padding:10px; border:none; width:250px; overflow:hidden; color:#ffffff;}
+#left-column form{width:100%; height:auto; float:left; margin-bottom:25px;}
+.sucess{float:left; margin-bottom:50px; width:250px;}
+#left-column form input[type=text]{width:230px; height:50px; background:#323a45; padding-left:20px; margin-bottom:15px; color:#969696; font-family: 'gotham_bookregular'; font-size:14px;}
+#left-column form textarea{width:230px; height:135px; background:#323a45; padding-left:20px; margin-bottom:15px; padding-top:15px; color:#969696; font-family: 'gotham_bookregular'; font-size:14px;}
+#left-column input[type=submit]{float:left; width:150px; height:50px; background:#dc272f; font-family:'gotham_boldregular'; text-transform:uppercase; font-size:14px; color:#ffffff;}
+#right-column{width:800px; height:auto; float:right; margin-top:50px;}
+#right-column h3{float:left; font-family: 'gotham_boldregular'; font-size:20px; color:#323a45; margin-bottom:25px;}
+#levea h3{float:left; font-family: 'gotham_boldregular'; font-size:20px; color:#323a45; margin-bottom:25px; width:100%;}
+#right-column h4{float:right; font-size:14px; font-family: 'gotham_bookregular' !important;}
+.pagination{width:1075px; height:auto; float:left; margin-top:50px; margin-bottom:50px;}
+.omattiedot{border-top:1px dotted #323a45; float:left; width:250px; padding-top:25px; margin-bottom:50px;}
+.varaaja{width:250px; height:auto; float:left; margin-bottom:25px; font-size:14px;}
+.varaaja h4{font-size:16px; font-family: 'gotham_boldregular';}
+.kohde{width:250px; height:auto; float:left; margin-bottom:50px; font-size:14px;}
+.kohde h4{font-size:16px; font-family: 'gotham_boldregular';}
+.varaus h3{width:800px; float:left;}
+#varauslomake p{margin-bottom:15px; float:left;}
+#varauslomake label{float:left; width:150px; margin-bottom:15px; margin-top:10px; line-height:25px;}
+#varauslomake input{float:right; width:630px; height:35px; padding-left:15px; background:#ffffff; border:1px solid #e3e3e3;}
+#varauslomake input[type=radio]{width:13px; height:13px; float:none; background:#323a45; margin-right:25px; margin-top:15px;}
+#varauslomake input[type=checkbox]{width:13px; height:13px; float:none; background:#323a45; margin-right:25px; margin-top:17px;}
+#varauslomake label.laskutustiedot{font-family:'gotham_boldregular'; float:left; color:#dc272f;}
+#varauslomake label.laskutustiedot:after{content:""; height:2px; width:auto; background:#dc272f; margin-top:-8px; display:block; width:645px; margin-left:150px;}
+#varauslomake label.toimitus{width:auto; margin-right:15px; margin-left:150px;}
+#varauslomake label.eitoimitusta{width:auto; margin-right:15px;}
+#varauslomake textarea{width:618px; height:150px; background:#ffffff; padding:15px; border:1px solid #e3e3e3;}
+.hide{display:none;}
+h3#lisaa{font-size:16px; font-family: 'gotham_bookregular'; color:#dc272f;}
+h3#lisaa:hover{text-decoration:underline; cursor:pointer;}
+h3#lisaa:before{content:"+ "; color:#dc272f; font-family:'gotham_bookregular';}
+h3#muutahintojaheader{font-size:16px; font-family: 'gotham_bookregular'; color:#dc272f;}
+h3#muutahintojaheader:hover{text-decoration:underline; cursor:pointer;}
+h3#muutahintojaheader:before{content:"+ "; color:#dc272f; font-family:'gotham_bookregular';}
+h3#muokkaa{font-size:16px; font-family: 'gotham_bookregular'; color:#dc272f;}
+#laitelista{float:left; width:100%; height:auto;}
+#laitelista table{width:100%; height:auto; float:left; font-size:12px;}
+#laitelista tr{height:25px; width:100%; border-bottom:1px solid #d3d3d3; margin-bottom:10px; float:left;}
+#laitelista tr:last-child{border-bottom:none; margin-bottom:50px;}
+#laitelista td{width:133px; text-align:left;}
+#laitelista td a{text-decoration:none; color:#dc272f;}
+#laitelista td a:hover{text-decoration:underline;}
+tr.headtitle{width:133px !important; height:auto; float:left; border-bottom:none !important; font-family: 'gotham_blackregular'; text-transform:uppercase;}
+label#hox{width:650px; float:left; margin-left:150px;  margin-bottom:-20px;}
+label.teemasomistus{width:120px !important; margin-left:150px !important;}
+label.valaistus{width:80px !important;}
+label.graafinen{width:170px !important;}
+label.promo{width:120px !important;}
+select#laskutustiedot{margin-top:12px; margin-left:-40px;}
+td.muokkaa{width:80px;}
+td.muokkaa a{font-size:12px;}
+td.muokkaa a:before{content:"\f040"; display:block; font-family:FontAwesome; margin-top:3px; margin-right:4px; float:left;}
+ul.lognav{float:right; list-style:none;}
+ul.lognav li{float:none; width:80px; text-align:left; font-size:13px;}
+ul.lognav ul{display:none; position:absolute; list-style:none; float:right; margin-top:3px;}
+.lognav li:hover ul{display:block; background:#dc272f;}
+.lognav li ul li{width:150px; margin-top:0px; padding:0px;}
+.lognav li ul li:first-child{display:none;}
+.lognav li ul li a{font-family: 'gotham_bookregular'; width:130px; color:#ffffff; text-transform:none; text-shadow:none; font-size:12px; height:15px; padding:10px; float:left;}
+.lognav li ul li a:hover{background:#a5181f;}
+.frontpageinfo{float:left; margin-bottom:50px;}
+.frontpageinfo table{font-size:14px !important;}
+.frontpageinfo h3{width:100%;}
+.frontpageinfo p{line-height:17px;}
+select#promo_hlot{margin-top:12px;}
+select#paikka{margin-top:12px; margin-right:25px;}
+.laskutus{width:100% !important; text-decoration:underline;}
+.lopunviesti{width:100% !important; height:auto;}
+
+/* CALENDAR */
+#calendar{float:left; width:800px; height:auto;}
+#calendar h4{float:right; margin-top:25px;}
+#calendar h4 a{color:#dc272f; text-decoration:none;}
+#calendar h4 a:hover{text-decoration:underline;}
+table{border-color:none !important; border-spacing:0px !important; border-collapse:collapse;}
+table.phpc-main{width:800px; height:auto; border-spacing:0px; border-color:transparent;}
+caption{width:800px; height:50px; background:#dc272f;}
+thead{width:800px; background:#a5181f; float:left;}
+thead.paivat tr{height:50px; text-align:center; color:#ffffff; font-size:12px;}
+th.week{width:50px; height:50px;}
+th.vkop{width:108px; height:50px;}
+#kalenterisisalto{float:left;}
+#kalenterisisalto tr{width:108px !important; height:108px !important;}
+th.ui-widget-header{width:50px; height:88px; padding-top:20px; background:#a5181f; color:#ffffff; border:none; font-size:14px; float:left;}
+td.ui-widget-content{border:none; float:left; background:#ffffff; border:1px solid #afb2b6; font-size:20px; width:102px; height:105px; font-family:'gotham_bookregular';}
+.phpc-date{float:left; margin:0px; background:none !important; padding-top:5px; padding-left:5px; font-size:20px; font-family:'gotham_bookregular';}
+.ui-widget{float:left; width:95px; height:75px; background:#ffffff; }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{border:none !important; background:none;}
+th{width:104px;}
+th:first-child{width:50px;}
+.ui-widget{font-family:'gotham_bookregular' !important;}
+td.phpc-date.ui-state-default.phpc-shadow.ui-widget{height:103px; width:100px;}
+select#month{background:none; border:none; font-size:20px; margin-top:15px; color:#ffffff; font-family:'gotham_bookregular';}
+select#year{background:none; border:none; font-size:20px; margin-top:15px; color:#ffffff; font-family:'gotham_bookregular';}
+input#lastmonthButton{background:transparent; color:#ffffff; font-size:20px;}
+input#nextmonthButton{background:transparent; color:#ffffff; font-size:20px;}
+#paivienvalinta{font-size:14px;}
+#paivienvalinta input[type=radio]{float:left; margin-right:5px;}
+h2#date_start{font-size:20px; margin-left:18px; color:#dc272f;}
+h2#date_end{font-size:20px; margin-left:18px; color:#dc272f;}
+p#laitteennimi{float:left; margin-bottom:25px; width:200px;}
+p#laitteenlisatieto{float:left; margin-bottom:25px; width:200px;}
+p#laitteenkuljetushinta{float:left; margin-bottom:25px; width:200px;}
+p#laitteenvalitutpaivat{float:left; margin-bottom:25px; width:200px;}
+p#laitteenvarauksenhinta{float:left; margin-bottom:25px; width:200px;}
+.varauspaikannimi{font-size:14px;}
+.kalenterinvarauslista{width:100%; float:left;}
+.kalenterinvarauslista th{width:20% !important; text-align:left; font-size:14px !important; }
+.kalenterinvarauslista td{width:20% !important; text-align:left; font-size:14px !important; }
+span#pakollinen{position:absolute; margin-top:-37px; margin-left:535px; font-size:12px;}
+span.req{float:none !important; margin-left:4px;}
+
+
+/* DATEPICKER TIMEPICKER */
+.ui-datepicker{padding:0 !important; border:2px solid #ffffff !important; border-radius:0px !important;}
+.ui-widget-header{background:#dc272f !important; border:none !important; border-radius:0px !important;}
+#ui-datepicker-div{height:260px;}
+.ui-datepicker-calendar thead{width:300px; float:none;}
+.ui-timepicker-list li{height:auto; width:225px !important; text-align:left; color:#ffffff !important; font-size:14px; padding-left:15px !important;}
+.ui-timepicker-list ul{width:100%; float:left;}
+.ui-timepicker-wrapper{width:240px !important; border:none !important; background:#323a46 !important;}
+.ui-timepicker-selected{background:#4f5e75 !important;}
+
+
+/* KÄYTTÄJÄT */
+#levea{width:1075px; height:auto; margin-top:25px; float:left;}
+span{float:left; width:100%; margin-bottom:3px;}
+span.etunimi{width:auto !important; float:left; margin-right:5px;}
+span.sukunimi{width:auto !important; float:left; margin-right:5px;}
+span.last{margin-bottom:25px;}
+
+
+/* YLEISET TEKSTITYYLIT */
+p{font-size:14px; }
+input{color:#000000; font-family: 'gotham_bookregular'; font-size:14px;}
+textarea{color:#000000; font-family: 'gotham_bookregular'; font-size:14px;}
+strong{font-family: 'gotham_boldregular';}
+h2#valitutpaivat{font-size:14px; float:left; text-align:left; width:100%; margin-bottom:25px;}
+
+
+/* YHTEENVETO */
+#yhteenvetolomake p{margin-bottom:5px;}
+label.yhteenveto{float:left; width:235px !important; margin-bottom:0px !important; margin-top:0px !important; line-height:15px !important; font-family: 'gotham_boldregular';}
+label.vastaus{float:left; width:560px !important; margin-bottom:0px !important; margin-top:0px !important; line-height:15px !important;}
+td.valiotsikko{font-family: 'gotham_boldregular'; width:100%; border-bottom:1px solid #000000; margin-bottom:10px; float:left;}
+p.infovaraus{float:left; margin-top:50px;}
+p.info{margin-bottom:25px; font-size:12px;}
+
+@media only screen and (max-width:1024px){
+	#wrapper{width:1000px;}
+	#header{width:1000px;}
+	ul.navigation{width:1000px;}
+	#left-column{width:200px;}
+	.omattiedot{width:200px;}
+	#right-column{width:760px;}
+	#laitelista tr.headtitle{width:190px !important;}
+	#left-column form input[type=text]{width:180px;}
+	#left-column form textarea{width:180px;}
+	#left-column form input[type=submit]{width:200px;}
+	input#checkkuljetus{float:left; margin-right:5px; margin-bottom:15px;}
+	#left-column form p{font-size:12px;}
+	p#laitteennimi{float:left; margin-bottom:25px; width:200px;}
+}
+
+@media only screen and (max-width:468px){
+	#wrapper{width:300px;}
+	#header{width:300px;}
+	ul.navigation{width:300px; height:150px;}
+	ul.navigation li{width:100%;}
+	#left-column{width:300px;}
+	.omattiedot{width:300px;}
+	.styled-select{margin-bottom:25px;}
+	#right-column{float:left; width:300px;}
+	#laitelista tr{height:auto;}
+	#laitelista td{width:30%; font-size:100%;}
+	#laitelista td.nimi{width:100%; height:auto; float:left; background:#dc272f; padding:5px;}
+	#laitelista td.nimi a{color:#ffffff;}
+}
