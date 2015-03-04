@@ -5,5 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class EmailController extends AppController{}
+class EmailController extends AppController{
+	
+	public function D_file_r2(){}
+}
 
