@@ -12,7 +12,7 @@ class Varaukset extends AppModel {
     public $dbTabletiedot;
     
     public function haeMonthvaraukset($id_item,$year,$month = ""){
-        
+        //new line 16:25
         $conditions = array(
             'id_item' => $id_item,
             'date_end >= CURDATE()',
@@ -34,7 +34,7 @@ class Varaukset extends AppModel {
     }
     
     public function haeLaiteenvaraustiedot($id_item,$year, $month){
-		
+			
         if($id_item != ""){		
 
             $_SESSION["id_item"] = $id_item;
