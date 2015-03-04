@@ -30,6 +30,7 @@ class VarauksetController extends AppController {
         $this->set(compact('varaukset'));
     }
     public function haevaraukset($id = null) {
+		//git test line
         $this->request->onlyAllow('ajax');
         $year = $this->request->data('year');
         $month = $this->request->data('month');
